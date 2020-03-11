@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://www.w3.org/1999/XSL/Transform">
+
+
+<ui:composition template="/templates/main.xhtml">
+    <ui:define name="content">
+
+        <h:form id="new-book-form">
+            <p>
+                <h:outputLabel value="Title:"/>
+                <h:inputText id="title" value="#{newBookController.book.title}"/>
+                <h:messages for="title"/>
+            </p>
+            <p>
+                <h:outputLabel value="Isbn"/>
+                <h:inputText id="isbn" value="#{newBookController.book.isbn}"/>
+                <h:message for="isbn"/>
+            </p>
+
+            <p>
+                <h:outputLabel value="Author"/>
+                <h:inputText id="author" value="#{newBookController.book.author}"/>
+                <h:message for="author"/>
+            </p>
+
+            <p>
+                <h:outputLabel value="Description"/>
+                <h:inputText id="description" value="#{newBookController.book.description}"/>
+                <h:message for="description"/>
+            </p>
+
+            <p>
+                <h:outputLabel value="Years"/>
+                <h:inputText id="years" value="#{newBookController.book.years}"/>
+                <h:message for="years"/>
+            </p>
+
+            <p>
+                <h:commandButton action="#{newBookController.createBook}"
+                                 value="Create">
+                    <f:ajax render="@form" execute="@form"/>
+                </h:commandButton>
+            </p>
+
+
+
+        </h:form>
+
+    </ui:define>
+</ui:composition>
+
+</html>
