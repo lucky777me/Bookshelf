@@ -14,7 +14,7 @@ import java.util.List;
 @Named
 @RequestScoped
 public class NewBookController {
-    private Logger logger= Logger.getLogger(NewBookController.class);
+
     @Inject
     private BookRepository bookRepository;
     private Book book= new Book();
@@ -34,13 +34,6 @@ public class NewBookController {
         this.book = book;
     }
 
-    public List<Book> getBookList() {
-        return bookList;
-    }
 
-    public void setBookList(List<Book> bookList) {
-        this.bookList = bookList;
-    }
 
-    private List<Book> bookList;
 }

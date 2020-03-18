@@ -15,7 +15,7 @@ public class Book implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
      private Long id;
 
-    @NotEmpty(message = "Title shouldnt be empty")
+    @NotEmpty(message = "Title must not be empty")
     @Size(max=200)
     @Column(name="title" , length = 200, nullable=false)
     private String title;
@@ -30,8 +30,8 @@ public class Book implements Serializable {
     @Min(value=1)
     @NotEmpty
     @NotNull
-    @Column(name="years" ,nullable = false)
-   private int years;
+    @Column(name="year" ,nullable = false)
+   private int year;
     @Size(max=1000)
     @Column(name="description",length=1000)
    private String description;
@@ -70,12 +70,12 @@ public class Book implements Serializable {
         this.author = author;
     }
 
-    public int getYears() {
-        return years;
+    public int getYear() {
+        return year;
     }
 
-    public void setYears(int years) {
-        this.years = years;
+    public void setYear(int year) {
+        this.year = year;
     }
     public String getDescription() {
         return description;

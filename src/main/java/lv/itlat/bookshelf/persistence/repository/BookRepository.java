@@ -6,10 +6,14 @@ import javax.enterprise.context.RequestScoped;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
+import java.util.List;
+
 
 @RequestScoped
 @Transactional
 public class BookRepository {
+
+
 
     @PersistenceContext(unitName = "bookshelfPU")
     private EntityManager em;
@@ -22,4 +26,7 @@ public class BookRepository {
     getEntityManager().persist(book);
     return book;
 }
+    public List<Book> retrieve(){
+        return getEntityManager().createQuery("SELECT b FROM Book b", Book.class).getResultList();
+    }
 }
