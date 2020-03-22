@@ -6,11 +6,21 @@
 <ui:composition>
     <h:form>
         <div class="w3-bar w3-black">
-            <ui:fragment rendered="true" >
+            <ui:fragment rendered="#{not empty currentUser.user}">
                 <h:link value="Create Book" outcome="/app/new-book.xhtml" styleClass="w3-bar-item w3-button"/>
             </ui:fragment>
-            <ui:fragment >
+            <ui:fragment rendered="#{not empty currentUser.user}">
                 <h:link value="My Books" outcome="/app/my-books.xhtml" styleClass="w3-bar-item w3-button"/>
+            </ui:fragment>
+            <ui:fragment rendered="#{not empty currentUser.user}">
+                <h:link value="Manage Reservations" outcome="/app/manage-reservations.xhtml" styleClass="w3-bar-item w3-button"/>
+            </ui:fragment>
+            <ui:fragment rendered="#{empty currentUser.user}">
+                <h:link value="Login" outcome="/login.xhtml" styleClass="w3-bar-item w3-button"/>
+                <h:link value="Registration" outcome="/registration.xhtml" styleClass="w3-bar-item w3-button"/>
+            </ui:fragment>
+            <ui:fragment rendered="#{not empty currentUser.user}">
+                <h:commandLink value="Logout" action="#{loginController.logout}" styleClass="w3-bar-item w3-button"/>
             </ui:fragment>
 
         </div>

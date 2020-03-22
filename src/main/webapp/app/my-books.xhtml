@@ -10,8 +10,8 @@
         </f:metadata>
 
         <h2>Available books</h2>
-        <h:form id="books">
-            <h:dataTable id="books" value="#{myBooksController.books}" var="book">
+        <h:form id="availableBooks">
+            <h:dataTable id="books" value="#{myBooksController.availableBooks}" var="book">
 
               <h:column>
                   <f:facet name="header">ID</f:facet>
@@ -41,6 +41,13 @@
                 <h:column>
                     <f:facet name="header">DESCRIPTION</f:facet>
                     <h:outputText value="#{book.description}"/>
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Link</f:facet>
+                    <h:outputLink value="book.xhtml">open
+                        <f:param name="id" value="#{book.id}"/>
+                    </h:outputLink>
                 </h:column>
 
             </h:dataTable>

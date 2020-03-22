@@ -35,6 +35,7 @@
 
             <p>
                 <h:outputLabel value="Description"/>
+                <br/>
                 <h:inputText id="description" value="#{newBookController.book.description}"/>
                 <h:message for="description"/>
             </p>
@@ -45,8 +46,6 @@
                     <f:ajax render="@form" execute="@form"/>
                 </h:commandButton>
             </p>
-
-
 
         </h:form>
 

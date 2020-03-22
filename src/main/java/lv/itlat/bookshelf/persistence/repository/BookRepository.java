@@ -26,6 +26,11 @@ public class BookRepository {
     getEntityManager().persist(book);
     return book;
 }
+
+    public Book findById(Long id) {
+        return getEntityManager().find(Book.class, id);
+    }
+
     public List<Book> retrieve(){
         return getEntityManager().createQuery("SELECT b FROM Book b", Book.class).getResultList();
     }

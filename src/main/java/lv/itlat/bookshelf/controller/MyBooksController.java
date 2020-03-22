@@ -14,25 +14,25 @@ import java.util.List;
 @Named
 @RequestScoped
 public class MyBooksController implements Serializable {
+    private Logger logger = Logger.getLogger(MyBooksController.class);
 
     @Inject
     private BookRepository bookRepository;
-    private List<Book> books;
+    private List<Book> availableBooks ;
+    private List<Book> reservedBooks;
 
     public void prepare(){
-        books = bookRepository.retrieve();
-
+        availableBooks = bookRepository.retrieve();
+    }
+    public void reserve(Long id) {
+        logger.info("Reservation by id" + id);
     }
 
-
-    public List<Book> getBooks() {
-        return books;
+    public List<Book> getAvailableBooks() {
+        return availableBooks;
     }
 
-    public void setBooks(List<Book> books) {
-        this.books = books;
+    public void setAvailableBooks(List<Book> availableBooks) {
+        this.availableBooks = availableBooks;
     }
-
-
-
 }

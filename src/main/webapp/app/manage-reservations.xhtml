@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<ui:composition template="/templates/main.xhtml">
+    <ui:define name="content">
+        <f:metadata>
+            <f:viewAction action="#{manageReservationsController.prepare}"/>
+        </f:metadata>
+
+        <h2>Availabel reservations</h2>
+        <h:form id="books">
+            <h:dataTable id="books" value="#{manageReservationsController.availableReservations}" var="reservation">
+
+                <h:column>
+                    <f:facet name="header">ID</f:facet>
+                    <h:outputText value="#{reservation.id}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Book Title</f:facet>
+                    <h:outputText value="#{reservation.book.title}"/>
+                </h:column>
+
+
+                <h:column>
+                    <f:facet name="header">Author</f:facet>
+                    <h:outputText value="#{reservation.book.author}"/>
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Email</f:facet>
+                    <h:outputText value="#{reservation.user.email}"/>
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Status</f:facet>
+                    <h:outputText value="#{reservation.status}"/>
+                </h:column>
+
+
+                <h:column>
+                    <f:facet name="header">Link</f:facet>
+                    <h:outputLink value="reservation.xhtml">open
+                        <f:param name="id" value="#{reservation.id}"/>
+                    </h:outputLink>
+                </h:column>
+
+            </h:dataTable>
+
+            <h2>Reserved</h2>
+            <h:dataTable id="reserved" value="#{manageReservationsController.reservedReservations}" var="reservation">
+
+                <h:column>
+                    <f:facet name="header">ID</f:facet>
+                    <h:outputText value="#{reservation.id}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Book Title</f:facet>
+                    <h:outputText value="#{reservation.book.title}"/>
+                </h:column>
+
+
+                <h:column>
+                    <f:facet name="header">Author</f:facet>
+                    <h:outputText value="#{reservation.book.author}"/>
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Email</f:facet>
+                    <h:outputText value="#{reservation.user.email}"/>
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Status</f:facet>
+                    <h:outputText value="#{reservation.status}"/>
+                </h:column>
+
+
+                <h:column>
+                    <f:facet name="header">Link</f:facet>
+                    <h:outputLink value="reservation.xhtml">open
+                        <f:param name="id" value="#{reservation.id}"/>
+                    </h:outputLink>
+                </h:column>
+
+            </h:dataTable>
+            <h2>Not Available</h2>
+            <h:dataTable id="notAvailable" value="#{manageReservationsController.notAvailableReservation}" var="reservation">
+
+                <h:column>
+                    <f:facet name="header">ID</f:facet>
+                    <h:outputText value="#{reservation.id}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Book Title</f:facet>
+                    <h:outputText value="#{reservation.book.title}"/>
+                </h:column>
+
+
+                <h:column>
+                    <f:facet name="header">Author</f:facet>
+                    <h:outputText value="#{reservation.book.author}"/>
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Email</f:facet>
+                    <h:outputText value="#{reservation.user.email}"/>
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Status</f:facet>
+                    <h:outputText value="#{reservation.status}"/>
+                </h:column>
+
+
+                <h:column>
+                    <f:facet name="header">Link</f:facet>
+                    <h:outputLink value="reservation.xhtml">open
+                        <f:param name="id" value="#{reservation.id}"/>
+                    </h:outputLink>
+                </h:column>
+
+            </h:dataTable>
+        </h:form>
+    </ui:define>
+</ui:composition>
+
+</html>

@@ -11,7 +11,7 @@
             <f:viewAction action="#{bookController.openBook}"/>
         </f:metadata>
 
-        <h1>#{bookBeen.book.title}</h1>
+        <h1>#{bookBean.book.title}</h1>
 <table>
     <tr>
         <td>id</td>
@@ -34,13 +34,11 @@
         <td>description</td>
         <td>#{bookController.book.description}</td>
     </tr>
-
-
 </table>
 
     <h:form>
         <h:commandButton value="Reserve"
-                         action="#{bookController.reserve(bookcontroller.id)}"/>
+                         action="#{bookController.reserve(bookController.id)}"/>
     </h:form>
 </ui:define>
 </ui:composition>
